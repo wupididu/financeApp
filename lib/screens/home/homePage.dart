@@ -17,10 +17,9 @@ class HomePage extends GetWidget<AuthContoller> {
     return Scaffold(
       appBar: AppBar(
         title: GetX<UserController>(
-          init: Get.put(UserController()),
-          builder: (_userController) {
-            if (_userController.user != null) {
-              return Text(_userController.user!.email);
+          builder: (_) {
+            if (userController.user != null) {
+              return Text(userController.user!.email);
             } else {
               return Text("Loading" + authContoller.user.toString());
             }
@@ -41,8 +40,7 @@ class HomePage extends GetWidget<AuthContoller> {
       ),
       body: Center(
         child: GetX<ListOfSpendingController>(
-          init: Get.put(ListOfSpendingController()),
-          builder: (listOfSpendingController) {
+          builder: (_) {
             if (listOfSpendingController.listOfSpending != null) {
               return ListView.builder(
                   itemCount: listOfSpendingController.listOfSpending!.length,

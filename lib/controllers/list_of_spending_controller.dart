@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class ListOfSpendingController extends GetxController {
+  static ListOfSpendingController instance = Get.find();
   Rxn<List<SpendingModel>> _listOfSpending = Rxn<List<SpendingModel>>();
 
   List<SpendingModel>? get listOfSpending => _listOfSpending.value;

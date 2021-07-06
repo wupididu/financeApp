@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  final AuthContoller _authContoller = Get.find();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,16 +15,16 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              controller: _authContoller.email,
+              controller: authContoller.email,
               decoration: InputDecoration(labelText: 'email'),
             ),
             TextFormField(
-              controller: _authContoller.password,
+              controller: authContoller.password,
               decoration: InputDecoration(labelText: 'password'),
             ),
             TextButton(
               onPressed: () {
-                _authContoller.signIn();
+                authContoller.signIn();
               },
               child: Text("Sign In"),
             ),

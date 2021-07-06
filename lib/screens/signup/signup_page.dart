@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SignUpPage extends GetView<AuthContoller> {
-  final AuthContoller _authContoller = Get.find();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,24 +15,24 @@ class SignUpPage extends GetView<AuthContoller> {
           () => Column(
             children: [
               TextFormField(
-                controller: _authContoller.email,
+                controller: authContoller.email,
                 decoration: InputDecoration(labelText: 'email'),
               ),
               TextFormField(
-                controller: _authContoller.password,
+                controller: authContoller.password,
                 decoration: InputDecoration(
                     labelText: 'password',
-                    errorText: _authContoller.errorIncorrectPassword.value),
+                    errorText: authContoller.errorIncorrectPassword.value),
               ),
               TextFormField(
-                controller: _authContoller.repeatPassword,
+                controller: authContoller.repeatPassword,
                 decoration: InputDecoration(
                     labelText: 'repeat password',
-                    errorText: _authContoller.errorMatchPasswordText.value),
+                    errorText: authContoller.errorMatchPasswordText.value),
               ),
               TextButton(
                 onPressed: () {
-                  _authContoller.signUp();
+                  authContoller.signUp();
                 },
                 child: Text("Sign Up"),
               ),

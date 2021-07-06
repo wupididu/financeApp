@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class CreateSpendController extends GetxController {
+  static CreateSpendController instance = Get.find();
   Rx<String> typeOfSpending = Rx<String>(listTypeOfSpending[0]);
   TextEditingController expense = TextEditingController();
 

@@ -49,6 +49,7 @@ class Database {
       .collection('user')
       .doc(_user?.uid)
       .collection('listOfSpending')
+      .orderBy('date', descending: true)
       .snapshots()
       .map((query) => List.generate(query.docs.length,
           (index) => SpendingModel.fromDocumentSnapshot(query.docs[index])));

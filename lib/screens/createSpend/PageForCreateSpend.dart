@@ -1,3 +1,4 @@
+import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
 import 'package:finance/controllers/create_spend_controller.dart';
 import 'package:finance/models/spending.dart';
@@ -18,8 +19,7 @@ class PageForCreateSpend extends StatelessWidget {
           child: Column(
             children: [
               GetX<CreateSpendController>(
-                init: Get.find<CreateSpendController>(),
-                builder: (createSpendController) => Column(
+                builder: (_) => Column(
                   children: [
                     InputDecorator(
                       decoration: InputDecoration(
