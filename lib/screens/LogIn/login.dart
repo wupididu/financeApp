@@ -21,6 +21,7 @@ class LoginPage extends StatelessWidget {
             TextFormField(
               controller: authContoller.password,
               decoration: InputDecoration(labelText: 'password'),
+              obscureText: true,
             ),
             TextButton(
               onPressed: () {

@@ -23,12 +23,14 @@ class SignUpPage extends GetView<AuthContoller> {
                 decoration: InputDecoration(
                     labelText: 'password',
                     errorText: authContoller.errorIncorrectPassword.value),
+                obscureText: true,
               ),
               TextFormField(
                 controller: authContoller.repeatPassword,
                 decoration: InputDecoration(
                     labelText: 'repeat password',
                     errorText: authContoller.errorMatchPasswordText.value),
+                obscureText: true,
               ),
               TextButton(
                 onPressed: () {
