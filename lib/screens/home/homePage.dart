@@ -4,6 +4,7 @@ import 'package:finance/controllers/authController.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/models/spending.dart';
+import 'package:finance/screens/createSpend/PageForCreateSpend.dart';
 import 'package:finance/services/database.dart';
 import 'package:finance/widgets/card_of_spending.dart';
 import 'package:flutter/gestures.dart';
@@ -58,10 +59,7 @@ class HomePage extends GetWidget<AuthContoller> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (authContoller.user != null) {
-            Database().addSpending(authContoller.user!.uid,
-                SpendingModel(TypeOfSpending.products, 1.0, Timestamp.now()));
-          }
+          Get.to(PageForCreateSpend());
         },
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:finance/constants/firebase.dart';
 import 'package:finance/controllers/authController.dart';
 import 'package:finance/controllers/binding/bind.dart';
+import 'package:finance/controllers/create_spend_controller.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/screens/LogIn/login.dart';
@@ -17,6 +18,7 @@ void main() async {
     Get.put(AuthContoller());
     Get.put(UserController());
     Get.put(ListOfSpendingController());
+    Get.put(CreateSpendController());
   });
   runApp(MyApp());
 }

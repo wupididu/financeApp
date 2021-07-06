@@ -11,8 +11,8 @@ class SpendingModel {
   late double expense;
   late Timestamp date;
 
-  SpendingModel(TypeOfSpending typeOfSpending, double expense, Timestamp date) {
-    this.typeOfSpending = typeOfSpending.toString().split('.')[1];
+  SpendingModel(String typeOfSpending, double expense, Timestamp date) {
+    this.typeOfSpending = typeOfSpending;
     this.expense = expense;
     this.date = date;
   }
@@ -37,5 +37,3 @@ class SpendingModel {
         DATE: date,
       };
 }
-
-enum TypeOfSpending { products, clothes, restarant }
