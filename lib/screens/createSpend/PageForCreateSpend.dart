@@ -19,7 +19,8 @@ class PageForCreateSpend extends StatelessWidget {
           child: Column(
             children: [
               GetX<CreateSpendController>(
-                builder: (_) => Column(
+                init: Get.find<CreateSpendController>(),
+                builder: (createSpendController) => Column(
                   children: [
                     InputDecorator(
                       decoration: InputDecoration(

@@ -3,7 +3,7 @@ import 'package:finance/controllers/authController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpPage extends GetView<AuthContoller> {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,8 +11,9 @@ class SignUpPage extends GetView<AuthContoller> {
         title: Text("Registration"),
       ),
       body: Container(
-        child: Obx(
-          () => Column(
+        child: GetX<AuthContoller>(
+          init: Get.find<AuthContoller>(),
+          builder: (authContoller) => Column(
             children: [
               TextFormField(
                 controller: authContoller.email,

@@ -1,5 +1,7 @@
 import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/firebase.dart';
+import 'package:finance/controllers/list_of_spending_controller.dart';
+import 'package:finance/controllers/total_score_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/models/user.dart';
 import 'package:finance/screens/LogIn/login.dart';
@@ -103,8 +105,11 @@ class AuthContoller extends GetxController {
     if (user != null) {
       Get.find<UserController>().user =
           UserModel(user.uid.toString(), user.email.toString());
+
+      Get.find<TotalScoreController>().refresh();
+      Get.find<ListOfSpendingController>().refresh();
     } else {
-      userController.user = null;
+      Get.find<UserController>().user = null;
     }
   }
 

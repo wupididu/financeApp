@@ -15,17 +15,17 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              controller: authContoller.email,
+              controller: Get.find<AuthContoller>().email,
               decoration: InputDecoration(labelText: 'email'),
             ),
             TextFormField(
-              controller: authContoller.password,
+              controller: Get.find<AuthContoller>().password,
               decoration: InputDecoration(labelText: 'password'),
               obscureText: true,
             ),
             TextButton(
               onPressed: () {
-                authContoller.signIn();
+                Get.find<AuthContoller>().signIn();
               },
               child: Text("Sign In"),
             ),

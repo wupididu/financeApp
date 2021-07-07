@@ -18,9 +18,9 @@ void main() async {
   await Firebase.initializeApp().then((value) {
     Get.put(AuthContoller());
     Get.put(UserController());
-    Get.put(ListOfSpendingController());
-    Get.put(CreateSpendController());
-    Get.put(TotalScoreController());
+    //Get.put(ListOfSpendingController());
+    //Get.put(CreateSpendController());
+    //Get.put(TotalScoreController());
   });
   runApp(MyApp());
 }

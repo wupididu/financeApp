@@ -1,4 +1,6 @@
 import 'package:finance/constants/controller.dart';
+import 'package:finance/controllers/list_of_spending_controller.dart';
+import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,8 +24,11 @@ void getDialogDeleteSpend(int index) {
               TextButton(
                 child: Text("Delete"),
                 onPressed: () {
-                  Database().removeSpending(userController.user!.id,
-                      listOfSpendingController.listOfSpending![index].id);
+                  Database().removeSpending(
+                      Get.find<UserController>().user!.id,
+                      Get.find<ListOfSpendingController>()
+                          .listOfSpending![index]
+                          .id);
                   Get.back();
                 },
               ),

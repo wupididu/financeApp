@@ -6,15 +6,13 @@ import 'package:finance/screens/home/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Root extends GetWidget<AuthContoller> {
+class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetX(
-      initState: (_) async {
-        Get.put<UserController>(UserController());
-      },
-      builder: (UserController userController) {
-        if (userController.user != null) {
+    return GetX<AuthContoller>(
+      init: Get.find<AuthContoller>(),
+      builder: (authContoller) {
+        if (authContoller.user != null) {
           return HomePage();
         } else {
           return LoginPage();

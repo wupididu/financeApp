@@ -17,8 +17,9 @@ class ListOfSpendingController extends GetxController {
   set listOfSpending(List<SpendingModel>? value) => listOfSpending = value;
 
   @override
-  void onReady() {
-    _listOfSpending.bindStream(Database().spendingStream(authContoller.user));
-    super.onReady();
+  void onInit() {
+    _listOfSpending
+        .bindStream(Database().spendingStream(Get.find<AuthContoller>().user));
+    super.onInit();
   }
 }

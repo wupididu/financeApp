@@ -47,13 +47,16 @@ class Database {
   }
 
   Stream<List<SpendingModel>> spendingStream(User? _user) => _firestore
-      .collection('user')
-      .doc(_user?.uid)
-      .collection(SpendingModel.COLLECTTION)
-      .orderBy(SpendingModel.DATE, descending: true)
-      .snapshots()
-      .map((query) => List.generate(query.docs.length,
-          (index) => SpendingModel.fromDocumentSnapshot(query.docs[index])));
+          .collection('user')
+          .doc(_user?.uid)
+          .collection(SpendingModel.COLLECTTION)
+          .orderBy(SpendingModel.DATE, descending: true)
+          .snapshots()
+          .map((query) => List.generate(query.docs.length,
+              (index) => SpendingModel.fromDocumentSnapshot(query.docs[index])))
+          .handleError((e) {
+        print(e);
+      });
 
   Stream<double> totalScoreStream(User? _user) async* {
     double score = 0.0;

@@ -20,11 +20,17 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Container(
           child: GetX<UserController>(
-            builder: (_) {
+            initState: (_) async {
+              Get.find<UserController>().user =
+                  await Database().getUser(Get.find<AuthContoller>().user!.uid);
+            },
+            init: Get.find<UserController>(),
+            builder: (userController) {
               if (userController.user != null) {
                 return Text(userController.user!.email);
               } else {
-                return Text("Loading" + authContoller.user.toString());
+                return Text(
+                    "Loading" + Get.find<AuthContoller>().user.toString());
               }
             },
           ),
@@ -35,7 +41,7 @@ class HomePage extends StatelessWidget {
               child: IconButton(
                 icon: Icon(Icons.logout),
                 onPressed: () {
-                  authContoller.singOut();
+                  Get.find<AuthContoller>().singOut();
                 },
               ),
             ),
@@ -46,27 +52,30 @@ class HomePage extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: GetX<TotalScoreController>(
-              builder: (_) => Center(
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 100,
-                      childAspectRatio: 3 / 2,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20),
-                  scrollDirection: Axis.vertical,
-                  itemCount: listTypeOfSpending.length,
-                  itemBuilder: (_, index) => Container(
-                    color: Colors.green[100],
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(listTypeOfSpending[index]),
-                        Text(totalScoreController
-                            .getTotalScoreOfProducts(index)
-                            .toString())
-                      ],
-                    ),
+            child: Center(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 100,
+                    childAspectRatio: 3 / 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20),
+                scrollDirection: Axis.vertical,
+                itemCount: listTypeOfSpending.length,
+                itemBuilder: (_, index) => Container(
+                  color: Colors.green[100],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(listTypeOfSpending[index]),
+                      GetX(
+                        init: Get.put<TotalScoreController>(
+                            TotalScoreController()),
+                        builder: (TotalScoreController totalScoreController) =>
+                            Text(totalScoreController
+                                .getTotalScoreOfProducts(index)
+                                .toString()),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -77,7 +86,9 @@ class HomePage extends StatelessWidget {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.7,
               child: GetX<ListOfSpendingController>(
-                builder: (_) {
+                init: Get.put<ListOfSpendingController>(
+                    ListOfSpendingController()),
+                builder: (ListOfSpendingController listOfSpendingController) {
                   if (listOfSpendingController.listOfSpending != null) {
                     return ListView.builder(
                         itemCount:

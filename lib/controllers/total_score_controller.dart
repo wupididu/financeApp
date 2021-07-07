@@ -1,5 +1,6 @@
 import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
+import 'package:finance/controllers/authController.dart';
 import 'package:finance/services/database.dart';
 import 'package:get/get.dart';
 
@@ -15,15 +16,17 @@ class TotalScoreController extends GetxController {
       index < listTypeOfSpending.length ? _list[index].value : 0.0;
 
   @override
-  void onReady() {
-    _totalScore.bindStream(Database().totalScoreStream(authContoller.user));
+  void onInit() {
+    _totalScore.bindStream(
+        Database().totalScoreStream(Get.find<AuthContoller>().user));
     int i = 0;
     _list.forEach((element) {
       print(listTypeOfSpending[i]);
-      element.bindStream(Database()
-          .totalScoreStreamOf(authContoller.user, listTypeOfSpending[i]));
+      element.bindStream(Database().totalScoreStreamOf(
+          Get.find<AuthContoller>().user, listTypeOfSpending[i]));
       i++;
     });
-    super.onReady();
+
+    super.onInit();
   }
 }
