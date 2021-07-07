@@ -3,6 +3,7 @@ import 'package:finance/controllers/authController.dart';
 import 'package:finance/controllers/binding/bind.dart';
 import 'package:finance/controllers/create_spend_controller.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
+import 'package:finance/controllers/total_score_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/screens/LogIn/login.dart';
 import 'package:finance/screens/home/homePage.dart';
@@ -19,6 +20,7 @@ void main() async {
     Get.put(UserController());
     Get.put(ListOfSpendingController());
     Get.put(CreateSpendController());
+    Get.put(TotalScoreController());
   });
   runApp(MyApp());
 }

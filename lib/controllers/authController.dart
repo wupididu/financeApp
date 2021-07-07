@@ -24,8 +24,8 @@ class AuthContoller extends GetxController {
   User? get user => _firebaseUser.value;
 
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
+    super.onInit();
     repeatPassword.addListener(_correctMatchPasswordsListner);
     password.addListener(_correctPasswordListner);
     _firebaseUser.bindStream(auth.userChanges());

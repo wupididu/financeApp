@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SpendingModel {
+  static const COLLECTTION = 'listOfSpending';
   static const ID = 'id';
-  static const TYPE_OF_SPENDING = 'typeOfSending';
+  static const TYPE_OF_SPENDING = 'typeOfSpending';
   static const EXPENCE = 'expence';
   static const DATE = 'date';
 

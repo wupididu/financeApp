@@ -18,8 +18,7 @@ class ListOfSpendingController extends GetxController {
 
   @override
   void onReady() {
-    _listOfSpending
-        .bindStream(Database().spendingStream(Get.find<AuthContoller>().user));
-    super.onInit();
+    _listOfSpending.bindStream(Database().spendingStream(authContoller.user));
+    super.onReady();
   }
 }
