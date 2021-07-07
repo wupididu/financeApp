@@ -18,22 +18,35 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Container(
-          child: GetX<UserController>(
-            initState: (_) async {
-              Get.find<UserController>().user =
-                  await Database().getUser(Get.find<AuthContoller>().user!.uid);
-            },
-            init: Get.find<UserController>(),
-            builder: (userController) {
-              if (userController.user != null) {
-                return Text(userController.user!.email);
-              } else {
-                return Text(
-                    "Loading" + Get.find<AuthContoller>().user.toString());
-              }
-            },
-          ),
+        title: Row(
+          children: [
+            Container(
+              child: GetX<UserController>(
+                initState: (_) async {
+                  Get.find<UserController>().user = await Database()
+                      .getUser(Get.find<AuthContoller>().user!.uid);
+                },
+                init: Get.find<UserController>(),
+                builder: (userController) {
+                  if (userController.user != null) {
+                    return Text(userController.user!.email);
+                  } else {
+                    return Text(
+                        "Loading" + Get.find<AuthContoller>().user.toString());
+                  }
+                },
+              ),
+            ),
+            SizedBox(width: 20),
+            Container(
+              child: GetX<TotalScoreController>(
+                  init: Get.put<TotalScoreController>(TotalScoreController()),
+                  builder: (TotalScoreController totalScoreController) {
+                    totalScoreController.bind();
+                    return Text(totalScoreController.totalScore.toString());
+                  }),
+            )
+          ],
         ),
         actions: [
           Container(
@@ -70,10 +83,12 @@ class HomePage extends StatelessWidget {
                       GetX(
                         init: Get.put<TotalScoreController>(
                             TotalScoreController()),
-                        builder: (TotalScoreController totalScoreController) =>
-                            Text(totalScoreController
-                                .getTotalScoreOfProducts(index)
-                                .toString()),
+                        builder: (TotalScoreController totalScoreController) {
+                          totalScoreController.bind();
+                          return Text(totalScoreController
+                              .getTotalScoreOfProducts(index)
+                              .toString());
+                        },
                       )
                     ],
                   ),
@@ -89,16 +104,22 @@ class HomePage extends StatelessWidget {
                 init: Get.put<ListOfSpendingController>(
                     ListOfSpendingController()),
                 builder: (ListOfSpendingController listOfSpendingController) {
+                  listOfSpendingController.bind();
                   if (listOfSpendingController.listOfSpending != null) {
-                    return ListView.builder(
-                        itemCount:
-                            listOfSpendingController.listOfSpending!.length,
-                        itemBuilder: (_, index) {
-                          return CardOfSpending(
-                              listOfSpendingController:
-                                  listOfSpendingController,
-                              index: index);
-                        });
+                    if (listOfSpendingController.listOfSpending!.length > 0) {
+                      return ListView.builder(
+                          itemCount:
+                              listOfSpendingController.listOfSpending!.length,
+                          itemBuilder: (_, index) {
+                            return CardOfSpending(
+                                listOfSpendingController:
+                                    listOfSpendingController,
+                                index: index);
+                          });
+                    } else
+                      return Center(
+                        child: Text('Nothing'),
+                      );
                   } else {
                     return Text("Loading...");
                   }

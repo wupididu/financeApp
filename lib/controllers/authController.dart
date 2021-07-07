@@ -76,7 +76,12 @@ class AuthContoller extends GetxController {
     }
   }
 
-  void singOut() => auth.signOut();
+  void singOut() {
+    auth.signOut();
+    Get.find<AuthContoller>().refresh();
+    Get.find<ListOfSpendingController>().refresh();
+    Get.find<TotalScoreController>().refresh();
+  }
 
   void _clearControllers() {
     email.clear();
@@ -105,9 +110,6 @@ class AuthContoller extends GetxController {
     if (user != null) {
       Get.find<UserController>().user =
           UserModel(user.uid.toString(), user.email.toString());
-
-      Get.find<TotalScoreController>().refresh();
-      Get.find<ListOfSpendingController>().refresh();
     } else {
       Get.find<UserController>().user = null;
     }

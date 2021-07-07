@@ -17,16 +17,28 @@ class TotalScoreController extends GetxController {
 
   @override
   void onInit() {
+    bind();
+
+    super.onInit();
+  }
+
+  void bind() {
     _totalScore.bindStream(
         Database().totalScoreStream(Get.find<AuthContoller>().user));
     int i = 0;
     _list.forEach((element) {
-      print(listTypeOfSpending[i]);
       element.bindStream(Database().totalScoreStreamOf(
           Get.find<AuthContoller>().user, listTypeOfSpending[i]));
       i++;
     });
+  }
 
-    super.onInit();
+  @override
+  void refresh() {
+    _totalScore.refresh();
+    _list.forEach((element) {
+      element.refresh();
+    });
+    super.refresh();
   }
 }
