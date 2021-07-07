@@ -40,14 +40,17 @@ class PageForCreateSpend extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
-                    TextField(
+                    TextFormField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                       ),
                       controller: createSpendController.expense,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r'^\d+\.?\d{0,2}'))
+                      ],
                     ),
                     TextButton(
                         onPressed: () {
