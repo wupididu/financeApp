@@ -18,9 +18,6 @@ class UserModel {
     email = snapshot[EMAIL];
   }
 
-  List<SpendingModel> _convertToList(List listFromDb) => List.generate(
-      listFromDb.length, (index) => SpendingModel.fromMap(listFromDb[index]));
-
   @override
   String toString() {
     // TODO: implement toString
