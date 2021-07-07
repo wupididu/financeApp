@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
