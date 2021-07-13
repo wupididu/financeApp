@@ -1,14 +1,6 @@
-import 'package:finance/constants/firebase.dart';
 import 'package:finance/controllers/authController.dart';
-import 'package:finance/controllers/binding/bind.dart';
-import 'package:finance/controllers/create_spend_controller.dart';
-import 'package:finance/controllers/list_of_spending_controller.dart';
-import 'package:finance/controllers/total_score_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
-import 'package:finance/screens/LogIn/login.dart';
-import 'package:finance/screens/home/homePage.dart';
 import 'package:finance/utils/root.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

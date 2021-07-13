@@ -1,12 +1,8 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/firebase.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
 import 'package:finance/controllers/total_score_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/models/user.dart';
-import 'package:finance/screens/LogIn/login.dart';
-import 'package:finance/screens/home/homePage.dart';
-import 'package:finance/screens/loaded_page.dart';
 import 'package:finance/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -47,6 +43,7 @@ class AuthContoller extends GetxController {
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Sign In Failed", "Try again ",
           snackPosition: SnackPosition.BOTTOM);
+      print(e);
     } catch (e) {
       print("hello");
       print(e);
@@ -71,6 +68,7 @@ class AuthContoller extends GetxController {
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Sign In Failed", "Try again",
           snackPosition: SnackPosition.BOTTOM);
+      print(e);
     } catch (e) {
       print(e);
     }

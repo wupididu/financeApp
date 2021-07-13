@@ -1,4 +1,3 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/controllers/authController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

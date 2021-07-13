@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finance/models/spending.dart';
 
 class UserModel {
   static const ID = 'id';
@@ -20,7 +19,6 @@ class UserModel {
 
   @override
   String toString() {
-    // TODO: implement toString
     return super.toString() + id + email;
   }
 }

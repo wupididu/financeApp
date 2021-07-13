@@ -1,4 +1,3 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/services/database.dart';

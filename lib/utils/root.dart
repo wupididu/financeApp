@@ -1,6 +1,4 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/controllers/authController.dart';
-import 'package:finance/controllers/user_controller.dart';
 import 'package:finance/screens/LogIn/login.dart';
 import 'package:finance/screens/home/homePage.dart';
 import 'package:flutter/material.dart';

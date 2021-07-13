@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finance/constants/controller.dart';
+
 import 'package:finance/models/spending.dart';
 import 'package:finance/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';

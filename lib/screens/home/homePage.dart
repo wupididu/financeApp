@@ -1,15 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
 import 'package:finance/controllers/authController.dart';
 import 'package:finance/controllers/list_of_spending_controller.dart';
 import 'package:finance/controllers/total_score_controller.dart';
 import 'package:finance/controllers/user_controller.dart';
-import 'package:finance/models/spending.dart';
 import 'package:finance/screens/createSpend/PageForCreateSpend.dart';
 import 'package:finance/services/database.dart';
 import 'package:finance/screens/home/widgets/card_of_spending.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

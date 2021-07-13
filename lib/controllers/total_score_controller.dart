@@ -1,4 +1,3 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
 import 'package:finance/controllers/authController.dart';
 import 'package:finance/services/database.dart';
@@ -18,7 +17,6 @@ class TotalScoreController extends GetxController {
   @override
   void onInit() {
     bind();
-
     super.onInit();
   }
 

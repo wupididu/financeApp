@@ -1,7 +1,4 @@
-import 'package:finance/constants/controller.dart';
-import 'package:finance/constants/firebase.dart';
 import 'package:finance/models/user.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {

@@ -1,4 +1,3 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/controllers/authController.dart';
 import 'package:finance/screens/signup/signup_page.dart';
 import 'package:flutter/material.dart';

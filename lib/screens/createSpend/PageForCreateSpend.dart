@@ -1,7 +1,5 @@
-import 'package:finance/constants/controller.dart';
 import 'package:finance/constants/list_type_of_spending.dart';
 import 'package:finance/controllers/create_spend_controller.dart';
-import 'package:finance/models/spending.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
